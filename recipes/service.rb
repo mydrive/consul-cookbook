@@ -33,4 +33,5 @@ end
 service 'consul' do
   supports status: true, restart: true
   action [:enable, :start]
+  subscribes :reload, "template[/etc/init.d/consul]", :immediately 
 end
